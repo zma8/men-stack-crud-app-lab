@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Song</title>
+</head>
+<body>
+    <h1>Add New Song</h1>
+    <a href="/songs">Back to Library</a>
+    
+    <form action="/songs" method="POST">
+        <div>
+            <label>Title:</label>
+            <input type="text" name="title" required>
+        </div>
+        
+        <div>
+            <label>Artist:</label>
+            <input type="text" name="artist" required>
+        </div>
+        
+        <div>
+            <label>Album:</label>
+            <input type="text" name="album" required>
+        </div>
+        
+        <div>
+            <label>Genre:</label>
+            <input type="text" name="genre" required>
+        </div>
+        
+        <div>
+            <label>Duration:</label>
+            <input type="text" name="duration" placeholder="3:45" required>
+        </div>
+        
+        <button type="submit">Add Song</button>
+        <a href="/songs">Cancel</a>
+    </form>
+</body>
+</html>

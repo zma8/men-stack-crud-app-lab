@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Song</title>
+</head>
+<body>
+    <h1>Edit Song</h1>
+    <a href="/songs/<%= song._id %>">Back to Song</a>
+    <a href="/songs">Library</a>
+    
+    <form action="/songs/<%= song._id %>?_method=PUT" method="POST">
+        <div>
+            <label>Title:</label>
+            <input type="text" name="title" value="<%= song.title %>" required>
+        </div>
+        
+        <div>
+            <label>Artist:</label>
+            <input type="text" name="artist" value="<%= song.artist %>" required>
+        </div>
+        
+        <div>
+            <label>Album:</label>
+            <input type="text" name="album" value="<%= song.album %>" required>
+        </div>
+        
+        <div>
+            <label>Genre:</label>
+            <input type="text" name="genre" value="<%= song.genre %>" required>
+        </div>
+        
+        <div>
+            <label>Duration:</label>
+            <input type="text" name="duration" value="<%= song.duration %>" required>
+        </div>
+        
+        <button type="submit">Update Song</button>
+        <a href="/songs/<%= song._id %>">Cancel</a>
+    </form>
+</body>
+</html>

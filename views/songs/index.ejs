@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Songs</title>
+</head>
+<body>
+    <h1>My Song Library</h1>
+    <a href="/songs/new">Add New Song</a>
+    
+    <% if (songs.length === 0) { %>
+        <p>No songs yet. <a href="/songs/new">Add your first song</a></p>
+    <% } else { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th>Album</th>
+                    <th>Genre</th>
+                    <th>Duration</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% songs.forEach(song => { %>
+                    <tr>
+                        <td><a href="/songs/<%= song._id %>"><%= song.title %></a></td>
+                        <td><%= song.artist %></td>
+                        <td><%= song.album %></td>
+                        <td><%= song.genre %></td>
+                        <td><%= song.duration %></td>
+                        <td>
+                            <a href="/songs/<%= song._id %>">View</a>
+                            <a href="/songs/<%= song._id %>/edit">Edit</a>
+                            <form action="/songs/<%= song._id %>?_method=DELETE" method="POST" >
+                                <button onclick="return confirm('Delete this song?')">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } %>
+</body>
+</html>

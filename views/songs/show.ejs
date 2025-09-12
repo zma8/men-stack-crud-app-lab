@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= song.title %></title>
+</head>
+<body>
+    <h1><%= song.title %></h1>
+    <a href="/songs">Back to Library</a>
+    
+    <div>
+        <p><strong>Artist:</strong> <%= song.artist %></p>
+        <p><strong>Album:</strong> <%= song.album %></p>
+        <p><strong>Genre:</strong> <%= song.genre %></p>
+        <p><strong>Duration:</strong> <%= song.duration %></p>
+    </div>
+    
+    <div>
+        <a href="/songs/<%= song._id %>/edit">Edit</a>
+        <form action="/songs/<%= song._id %>?_method=DELETE" method="POST" >
+            <button onclick="return confirm('Are you sure?')">Delete</button>
+        </form>
+    </div>
+</body>
+</html>
